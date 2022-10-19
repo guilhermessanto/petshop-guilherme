@@ -1,7 +1,7 @@
 import estilos from "./Menu.module.css";
 const Menu = () => {
   return (
-    <nav className={estilos.menu}>
+    <nav>
       <a href="/">Blog</a>
       <a href="/produtos">Produtos</a>
       <a href="/sobre">Sobre</a>
