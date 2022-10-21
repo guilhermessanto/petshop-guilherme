@@ -12,7 +12,7 @@ const Cabecalho = () => {
           <h1>
             <Link to="/">
               <img src={logo} alt="Patinha dentro de um coração" />
-              Petshop
+              PetShop
             </Link>
           </h1>
           <Menu />
