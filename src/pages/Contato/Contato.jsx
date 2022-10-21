@@ -5,7 +5,7 @@ const Contato = () => {
   return (
     <section>
       <h2 className={estilos.titulo_secao}>Fale Conosco</h2>
-      <Caixa id="contato">
+      <Caixa>
         <p>em breve teremos um formulario</p>
       </Caixa>
     </section>
