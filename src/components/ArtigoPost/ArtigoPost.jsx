@@ -1,9 +1,12 @@
+import { Link } from "react-router-dom";
 import estilos from "./ArtigoPost.module.css";
-const ArtigoPost = (props) => {
+const ArtigoPost = ({ id, titulo, subtitulo, classe }) => {
   return (
-    <article className={props.classe}>
-      <h3>{props.titulo}</h3>
-      <p>{props.subtitulo}</p>
+    <article className={classe}>
+      <Link to={`/posts/${id}`}>
+        <h3>{titulo}</h3>
+        <p>{subtitulo}</p>
+      </Link>
     </article>
   );
 };
