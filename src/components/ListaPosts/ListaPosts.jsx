@@ -3,14 +3,14 @@ import estilos from "./ListaPosts.module.css";
 import servidorApi from "../../api/servidor-api.js";
 import LoadingDesenho from "../LoadingDesenho/LoadingDesenho";
 import ArtigoPost from "../ArtigoPost/ArtigoPost";
-const ListaPosts = () => {
+const ListaPosts = ({ url }) => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function getPosts() {
       try {
-        const resposta = await fetch(`${servidorApi}/posts`);
+        const resposta = await fetch(`${servidorApi}/${url || "posts"}`);
         const dados = await resposta.json();
         setPosts(dados);
         setLoading(false);
@@ -19,7 +19,7 @@ const ListaPosts = () => {
       }
     }
     getPosts();
-  }, []);
+  }, [url]);
 
   if (loading) {
     return <LoadingDesenho />;
