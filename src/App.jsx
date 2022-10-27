@@ -6,6 +6,7 @@ import Sobre from "./pages/Sobre/Sobre";
 import Contato from "./pages/Contato/Contato";
 import Pagina404 from "./pages/Pagina404/Pagina404";
 import Post from "./pages/Post/Post";
+import Categoria from "./pages/Categoria/Categoria";
 
 const App = () => {
   return (
@@ -22,6 +23,9 @@ const App = () => {
             </Route>
             <Route path="/posts/:id">
               <Post />
+            </Route>
+            <Route exact path="/categoria/:nome">
+              <Categoria />
             </Route>
             <Route path="/produtos">
               <Produtos />
