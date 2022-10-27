@@ -26,3 +26,6 @@
   cursor: pointer;
   transform: scale(1.05);
 }
+.centralizar {
+  text-align: center;
+}

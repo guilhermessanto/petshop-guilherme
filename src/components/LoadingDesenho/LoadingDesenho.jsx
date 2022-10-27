@@ -1,10 +1,10 @@
 import imagemLoading from "../../assets/images/loading.svg";
 import estilos from "./LoadingDesenho.module.css";
 
-const LoadingDesenho = () => {
+const LoadingDesenho = (props) => {
   return (
     <div className={estilos.loading}>
-      <h2>Carregando...</h2>
+      <h2>{props.ldName}</h2>
       <img src={imagemLoading} alt="" />
     </div>
   );
