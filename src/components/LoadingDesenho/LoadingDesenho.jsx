@@ -5,7 +5,7 @@ const LoadingDesenho = (props) => {
   return (
     <div className={estilos.loading}>
       <h2>{props.ldName}</h2>
-      <img src={imagemLoading} alt="" />
+      <img src={imagemLoading} alt="pacman" />
     </div>
   );
 };
