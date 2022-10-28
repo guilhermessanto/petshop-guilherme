@@ -70,3 +70,57 @@ Telas de até o tamanho X (max-width)
 
 - Em vez de usar uma `div` en cada página agrupando conteúdos diferentes, isolamos ela num componente genérico(Caixa), aplicamo o CSS uma única vez usando módulo do componente, e programamos através de `props` o carregamento dinâmico do conteúdo (**children**) e de classes adicionais (**listaDeClasses**).
 - DICA: você pode usar **destructuring** de objetos nas `props`
+
+## Usando uma Api fake para simular processos de consumo de dados dinâmicos
+
+### Instalação global ddo pacote JSON-SERVER
+
+`npm install -g json-server`
+
+Obs: se tiver problemas ao executar, utilize o **Node.js command prompt**
+
+### Utilização de um arquivo.json para simular a base de dados da API
+
+- É necessário criar um **arquivo.json** em qualquer pasta em sua máquina (no nosso caso, usamos a própria pasta raiz po PetShop). Este arquivo deve ao ser composto por um grande objeto contendo arrays com outros objetos.
+
+## Execução do server da API
+
+1. Usando de referência o **node.js command prompt**, acesse a pasta onde está o **nome-do-arquivo.json**
+2. Execute o comando `json-server --watch db.json --port 3001`
+   Obs: o número da porta deve ser diferente da 3000 (que é padrão no json-server) pois esta porta já estará sendo usada peçp app **React**
+   Dica: no **package.json** do seu app adicione em `script` uma nnova propriedade chamada `api` valendo `json-server --watch db.json --port 3001`. Desta forma, você poderá executar o server da API digitando simplesmente `npm run api`
+
+Após a execução da API, cada array de objetos contido no **arquivo.json** se torna um `endpoint` da API, acessível através da URL _localhost:porta/nome-do-endpoint_.
+
+Exemplos:
+
+`http://localhost:2112/categorias`
+
+`http://localhost:2112/posts`
+
+`http://localhost:2112/contatos`
+
+--
+
+## React Hooks
+
+Introduzidos na versão React 16.8, são funções que permitem manipular estados e outros recursos do React sem a necessidade de programar Classes. **Hooks** são funções que se conectam aos estados do React e aos recursos do ciclo de vida dos componentes da função. _Não funcionam dentro de classes_.
+
+Mais informações: <https://www.javatpoint.com/react-hooks>
+
+### useState
+
+Função que retorna uma variável com o valor do estado (state) e uma função que permite atualizar o valor desta variável. Podemos ter vários useState em nossos componentes para gerenciar estados e dados diferentes.
+
+### useEffect
+
+Este hook visa permitir um maior controle sobre "efeitos colaterais" na execução do componente.
+
+Recebe dois parâmetros:
+
+- 1º: função callback com o que será executado
+- 2º: lista (array) de dependências que indicarão ao `useEffect` quando ele deverá funcionar
+
+Se não passar a lista (ou seja, se deixar sem []), `useEffect` executará toda vez que o componente for renderizado. Portanto, o callback se torna um loop infinito.
+
+Se passar a lista vazia (ou seja, deixar o [] vazio), `useEffect` executará somente no momento que o componente é renderizado pela primeira vez, evitando o loop infinito do callback.
