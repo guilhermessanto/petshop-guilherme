@@ -1,10 +1,17 @@
 import { TextField, Button } from "@mui/material";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import Caixa from "../../components/Caixa/Caixa";
 import estilos from "./Contato.module.css";
 import servidorApi from "../../api/servidor-api";
 
 const Contato = () => {
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [mensagem, setMensagem] = useState("");
+
+  let history = useHistory();
+
   /* Eventos/Funções para captura da digitação */
   const inputNome = (event) => setNome(event.target.value);
   const inputEmail = (event) => setEmail(event.target.value);
@@ -22,14 +29,11 @@ const Contato = () => {
     try {
       await fetch(`${servidorApi}/contatos`, opcoes);
       alert("Dados enviados!");
+      history.push("/");
     } catch (error) {
       console.log("Deu ruim" + error.message);
     }
   };
-
-  const [nome, setNome] = useState("");
-  const [email, setEmail] = useState("");
-  const [mensagem, setMensagem] = useState("");
 
   let desabilitado = !nome || !email || !mensagem;
   return (
@@ -50,8 +54,10 @@ const Contato = () => {
               variant="outlined"
               fullWidth
               required
-              helperText="Informe seu nome"
+              helperText={!nome ? "Informe seu nome" : ""}
             />
+          </div>
+          <div>
             <TextField
               onChange={inputEmail}
               id="teste2"
@@ -60,8 +66,10 @@ const Contato = () => {
               variant="outlined"
               fullWidth
               required
-              helperText="Informe seu email"
+              helperText={!email ? "Informe seu email" : ""}
             />
+          </div>
+          <div>
             <TextField
               onChange={inputMensagem}
               id="test3"
@@ -71,13 +79,13 @@ const Contato = () => {
               rows={4}
               fullWidth
               required
-              helperText="Digite uma mensagem"
+              helperText={!mensagem ? "Digite uma mensagem" : ""}
             />
-            <div>
-              <Button disabled={desabilitado} type="submit" variant="outlined">
-                ENVIAR MENSAGEM
-              </Button>
-            </div>
+          </div>
+          <div>
+            <Button disabled={desabilitado} type="submit" variant="outlined">
+              ENVIAR MENSAGEM
+            </Button>
           </div>
         </form>
       </Caixa>
