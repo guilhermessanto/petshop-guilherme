@@ -153,4 +153,15 @@ _Dica CSS:_ https://code.tutsplus.com/pt/tutorials/the-30-css-selectors-you-must
 
 - Altere a linha: `"json-server --watch db.json --port 3001"`
 
-exemplo: `"api" : "json-server --host 10.20.45.23 db.json --3001"`
+exemplo: `"api" : "json-server --host 10.20.45.23 db.json --p 2112"`
+
+## Tornando o app React em uma aplicação instalável no dispositivo (PWA)
+
+### Configurar arquivo manifest.json
+
+- Um arquivo de manifesto é um arquivo json contendo informações sobre seu aplicativo web e, quando combinado com um **Service Worker**, permite a instalação do aplicativo em qualquer dispositivo compatível.
+
+### Configurar/Programar um Service Worker JS
+
+- Um **service Worker** é um script que o navegador executa em segundo plano separado da aplicação web, possibilitando recursos que não precisam de uma página ou interações com usuário.
+- O Service Worker está no centro de muitos recursos das chamadas **PWAs (Progressive Web Application )**, tais como: cache offline, sincronização em segundo plano,notificações,execução independente do navegador mobile etc.
