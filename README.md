@@ -124,3 +124,44 @@ Recebe dois parâmetros:
 Se não passar a lista (ou seja, se deixar sem []), `useEffect` executará toda vez que o componente for renderizado. Portanto, o callback se torna um loop infinito.
 
 Se passar a lista vazia (ou seja, deixar o [] vazio), `useEffect` executará somente no momento que o componente é renderizado pela primeira vez, evitando o loop infinito do callback.
+
+## CSS: uso da pseudo-classe :has()
+
+Referências:
+
+`https://edrodrigues.com.br/blog/where-is-has-novos-seletores-css-que-facilitam-sua-vida/`
+
+`https://www.youtube.com/watch?v=Ia_4XdisCGQ`
+
+`https://css-tricks.com/the-css-has-selector/`
+
+`https://webkit.org/blog/13096/css-has-pseudo-class/`
+
+---
+
+## MUI: Biblioteca de componentes para React
+
+Site oficial: https://mui.com/pt/material-ui/getting-started/installation/
+
+Instalação: `npm install @mui/material @emotion/react @emotion/styled`
+
+_Dica CSS:_ https://code.tutsplus.com/pt/tutorials/the-30-css-selectors-you-must-memorize--net-16048
+
+## Para usar a API via rede local
+
+### package.json
+
+- Altere a linha: `"json-server --watch db.json --port 3001"`
+
+exemplo: `"api" : "json-server --host 10.20.45.23 db.json --p 2112"`
+
+## Tornando o app React em uma aplicação instalável no dispositivo (PWA)
+
+### Configurar arquivo manifest.json
+
+- Um arquivo de manifesto é um arquivo json contendo informações sobre seu aplicativo web e, quando combinado com um **Service Worker**, permite a instalação do aplicativo em qualquer dispositivo compatível.
+
+### Configurar/Programar um Service Worker JS
+
+- Um **service Worker** é um script que o navegador executa em segundo plano separado da aplicação web, possibilitando recursos que não precisam de uma página ou interações com usuário.
+- O Service Worker está no centro de muitos recursos das chamadas **PWAs (Progressive Web Application )**, tais como: cache offline, sincronização em segundo plano,notificações,execução independente do navegador mobile etc.

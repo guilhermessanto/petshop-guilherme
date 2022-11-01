@@ -7,10 +7,6 @@
     {
       "id": 2,
       "nome": "comportamento"
-    },
-    {
-      "id": 3,
-      "nome": "dicas"
     }
   ],
   "posts": [
@@ -89,6 +85,18 @@
       "email": "teste@teste",
       "mensagem": "teste3",
       "id": 3
+    },
+    {
+      "nome": "teste 04",
+      "email": "teste04@gmail.com",
+      "mensagem": "teste04",
+      "id": 4
+    },
+    {
+      "nome": "teste05",
+      "email": "teste05@teste",
+      "mensagem": "teste05",
+      "id": 5
     }
   ]
 }
