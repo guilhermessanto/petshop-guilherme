@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+petshop-c03aa-default-rtdb-export.json
 
 # testing
 /coverage

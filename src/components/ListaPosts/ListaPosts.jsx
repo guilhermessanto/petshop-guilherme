@@ -10,9 +10,20 @@ const ListaPosts = ({ url }) => {
   useEffect(() => {
     async function getPosts() {
       try {
-        const resposta = await fetch(`${servidorApi}/${url || "posts"}`);
+        const resposta = await fetch(`${servidorApi}/posts.json`);
         const dados = await resposta.json();
-        setPosts(dados);
+        let listaDePosts = [];
+        for (const post in dados) {
+          const objetoPost = {
+            id: post, //a chave/string gerada pelo firebase será como um id
+            titulo: dados[post].titulo,
+            subtitulo: dados[post].subtitulo,
+            descricao: dados[post].descricao,
+            categoria: dados[post].categoria,
+          };
+          listaDePosts.push(objetoPost);
+        }
+        setPosts(listaDePosts);
         setLoading(false);
       } catch (error) {
         console.error("Deu ruim!" + error.message);
