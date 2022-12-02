@@ -3,7 +3,7 @@ import estilos from "./ListaPosts.module.css";
 import servidorApi from "../../api/servidor-api.js";
 import LoadingDesenho from "../LoadingDesenho/LoadingDesenho";
 import ArtigoPost from "../ArtigoPost/ArtigoPost";
-const ListaPosts = ({ url }) => {
+const ListaPosts = ({ categoria }) => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -22,6 +22,12 @@ const ListaPosts = ({ url }) => {
             categoria: dados[post].categoria,
           };
           listaDePosts.push(objetoPost);
+
+          if (categoria) {
+            listaDePosts = listaDePosts.filter(
+              (cadaPost) => cadaPost.categoria === categoria
+            );
+          }
         }
         setPosts(listaDePosts);
         setLoading(false);
@@ -30,7 +36,7 @@ const ListaPosts = ({ url }) => {
       }
     }
     getPosts();
-  }, [url]);
+  }, [categoria]);
 
   if (loading) {
     return <LoadingDesenho ldName={"Posts..."} />;
