@@ -1,3 +1,3 @@
 const porta = "3001";
-const servidorApi = `http://localhost:${porta}`;
+const servidorApi = `http://192.168.1.8:${porta}`;
 export default servidorApi;
