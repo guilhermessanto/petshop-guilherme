@@ -13,13 +13,12 @@ const Post = () => {
   useEffect(() => {
     async function getPost() {
       try {
-        const resposta = await fetch(`${servidorApi}/posts/${id}`);
+        /* Necessario adicionar ".json" para que o recurso/documento de dados do Realtime seja lido como um objeto. */
+        const resposta = await fetch(`${servidorApi}/posts/${id}.json`);
         const dados = await resposta.json();
         setUmPost(dados);
         setLoading(false);
-        /* verificando se o resultado do objeto de dados possui tamanho zero(ou seja , se ele está vazio sem dados nenhum) */
-        if (Object.keys(dados).length === 0) {
-          /* Estando, forçamos o redirecionamento numa rota de primeiro nivel que não existe. Com isso, na prática, o router traz a pagina404. */
+        if (!dados) {
           history.push("/404");
         }
       } catch (error) {
@@ -27,7 +26,7 @@ const Post = () => {
       }
     }
     getPost();
-  }, [id]);
+  }, [id, history]);
 
   if (loading) {
     return <LoadingDesenho />;

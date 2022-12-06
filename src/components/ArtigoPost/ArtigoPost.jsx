@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import estilos from "./ArtigoPost.module.css";
+//import estilos from "./ArtigoPost.module.css";
 const ArtigoPost = ({ id, titulo, subtitulo, classe }) => {
   return (
     <article className={classe}>
